@@ -1,11 +1,111 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+.front-card {
+  color: black;
+}
+
+.frontcard {
+  position: relative;
+  background: url("../images/card-logo.svg") top 4rem left 4rem no-repeat, url("../images/bg-card-front.png") center right no-repeat;
+  z-index: 2;
+  background-size: auto;
+  width: 30rem;
+  height: 20rem;
+  margin-left: 5rem;
+}
+
+.cardnumberlabel {
+  position: absolute;
+  font-size: 2rem;
+  margin-top: 10rem;
+  margin-left: 4rem;
+}
+
+.namelabel {
+  position: absolute;
+  margin-top: 15rem;
+  margin-left: 3.5rem;
+  font-size: 1.1rem;
+}
+
+.explabel {
+  position: absolute;
+  margin-top: 15rem;
+  margin-left: 25rem;
+  font-size: 1.1rem;
+}
+
+
+.right {
+  color: black;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.name, .cardnumber
+{
+  max-width: 25rem;
+}
+
+.expcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.monthyearcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.monthyearcontainer > input {
+  max-width: 5rem;
+}
+
+.monthyearcontainer > input:nth-child(2) {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.cvc > input {
+  max-width: 13rem;
+}
+
+.exp, .cvc {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  max-width: 25rem;
+  padding: 1rem;
+  border-style: solid;
+  border-color: hsl(278, 68%, 11%);
+  background-color: hsl(278, 68%, 11%);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background-color: hsl(279, 6%, 55%);
+  border-color: hsl(279, 6%, 55%)
+}
