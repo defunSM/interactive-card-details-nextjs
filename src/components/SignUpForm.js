@@ -48,18 +48,18 @@ function SignUpForm ({form, setForm}) {
   return ( <form onSubmit={handleSubmit}>
               <div className={styles.form}>
 
-                <label for="name">CARDHOLDER NAME</label>
+                <label>CARDHOLDER NAME</label>
                 <input onChange={updateForm} className={isNameValid ? styles.name : styles.nameinvalid } type="text" id="name" name="name" placeholder="e.g. Jane Appleseed"/>
                 { isNameValid ? "" : <span className={styles.error}>Can&apos;t be blank </span>}
 
-                <label for="number">CARD NUMBER</label>
+                <label>CARD NUMBER</label>
                 <input onChange={updateForm} className={ isCardNumberValid ? styles.cardnumber : styles.cardnumberinvalid} type="text" id="cardNumber" name="number" placeholder="e.g. 1234 5678 9123 0000" maxLength={MAX_DIGITS_FOR_CARDNUMBER} value={form.cardNumber === "0000 0000 0000 0000" ? "" : form.cardNumber}/>
 
                 { isCardNumberValid ? "" : <span className={styles.error}>Wrong format, numbers only</span>}
 
                 <div className={styles.expcontainer}>
                   <div className={styles.exp}>
-                    <label for="exp-month">EXP. DATE (MM/YY)</label>
+                    <label>EXP. DATE (MM/YY)</label>
 
                     <div className={styles.monthyearcontainer}>
                       <input onChange={updateForm} type="text" id="expMonth" name="exp-month" placeholder="MM" maxLength={2} className={isExpMonthValid ? styles.expMonth : styles.expMonthinvalid}/>
@@ -69,7 +69,7 @@ function SignUpForm ({form, setForm}) {
 
                   </div>
                   <div className={styles.cvc}>
-                    <label for="cvc">CVC</label>
+                    <label>CVC</label>
                     <input onChange={updateForm} type="text" id="cvc" name="cvc" placeholder="e.g. 123" maxLength={4} className={isCvcValid ? styles.cvc : styles.cvcInvalid}/>
                     { isCvcValid ? "" : <span className={styles.error}>Can&apos;t be blank</span>}
                   </div>
