@@ -12,7 +12,7 @@ import { useState } from 'react'
 const ThankYouComponent = () => {
   return (
     <div className={styles.thankyou}>
-      <Image src={iconcomplete} className={styles.complete}/>
+      <Image src={iconcomplete} className={styles.complete} alt="complete-image"/>
       <h1 className={styles.thankyouheader}>THANK YOU!</h1>
       <div className={styles.desc}>We&#39;ve added your card details</div>
       <button className={styles.continue}>Continue</button>
