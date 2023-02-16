@@ -6,7 +6,7 @@ import frontcard from '../images/bg-card-front.png'
 import backcard from '../images/bg-card-back.png'
 import cardlogo from '../images/card-logo.svg'
 import iconcomplete from '../images/icon-complete.svg'
-import SignUpForm from './components/SignUpForm'
+import SignUpForm from '../components/SignUpForm'
 import { useState } from 'react'
 
 const ThankYouComponent = () => {

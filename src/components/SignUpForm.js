@@ -1,4 +1,4 @@
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
 const MAX_DIGITS_FOR_CARDNUMBER = 19 // 16 digits 3 of which are white spaces
