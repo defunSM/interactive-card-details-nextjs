@@ -99,6 +99,18 @@ a {
   text-decoration: none;
 }
 
+@media (max-width: 400px) {
+  body {
+    background-position: top;
+    background-size: 100% 35%;
+    background-attachment: fixed;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

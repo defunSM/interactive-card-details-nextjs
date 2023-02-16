@@ -27,6 +27,15 @@
   margin-left: 5rem;
 }
 
+.backcard {
+  position: relative;
+  background: url("../images/bg-card-back.png") no-repeat;
+  background-size: auto;
+  width: 30rem;
+  height: 16rem;
+  margin-left: 15rem;
+}
+
 .cardnumberlabel {
   position: absolute;
   font-size: 2rem;
@@ -48,6 +57,15 @@
   font-size: 1.1rem;
 }
 
+.cvclabel {
+  position: absolute;
+  margin-top: 7rem;
+  margin-left: 22rem;
+  color: white;
+  font-size: 1.1rem;
+
+}
+
 
 .right {
   color: black;
@@ -63,6 +81,19 @@
 .name, .cardnumber
 {
   max-width: 25rem;
+}
+
+.nameinvalid, .cardnumberinvalid {
+  max-width: 25rem;
+  border-color: hsl(0, 100%, 66%);
+}
+
+.expMonthinvalid {
+  border-color: hsl(0, 100%, 66%);
+}
+
+.expYearinvalid {
+  border-color: hsl(0, 100%, 66%);
 }
 
 .expcontainer {
@@ -93,6 +124,12 @@
   flex-direction: column;
 }
 
+.cvcInvalid {
+  display: flex;
+  flex-direction: column;
+  border-color:hsl(0, 100%, 66%);
+}
+
 .submit {
   max-width: 25rem;
   padding: 1rem;
@@ -108,4 +145,93 @@
   cursor: pointer;
   background-color: hsl(279, 6%, 55%);
   border-color: hsl(279, 6%, 55%)
+}
+
+.error {
+  color: hsl(0, 100%, 66%);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.thankyou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rem;
+}
+
+.continue {
+  appearance: none;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: hsl(278, 68%, 11%);
+  cursor: pointer;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 25rem;
+
+}
+
+.desc {
+  color: hsl(279, 6%, 55%);
+  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.thankyouheader {
+  margin-top: 2rem;
+}
+
+@media (max-width: 400px) {
+  .main {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0rem;
+    padding: 0rem;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse !important;
+    margin: 0rem;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    margin: 0rem;
+  }
+
+  .form {
+    transform: scale(0.9);
+    margin: 0rem;
+    margin-top: -2rem;
+  }
+
+  .thankyou {
+    margin: 0rem;
+  }
+
+  .continue {
+    min-width: 320px;
+  }
+
+  .frontcard {
+    transform: scale(0.7);
+    margin: 0rem;
+  }
+
+  .backcard {
+    transform: scale(0.7);
+    margin: 0rem;
+    margin-bottom: -12rem;
+    margin-left: 4rem;
+    padding: 0rem;
+  }
 }

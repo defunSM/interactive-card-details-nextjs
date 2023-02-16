@@ -5,18 +5,19 @@ import styles from '@/styles/Home.module.css'
 import frontcard from '../images/bg-card-front.png'
 import backcard from '../images/bg-card-back.png'
 import cardlogo from '../images/card-logo.svg'
-
+import iconcomplete from '../images/icon-complete.svg'
+import SignUpForm from './components/SignUpForm'
 import { useState } from 'react'
 
-const MAX_DIGITS_FOR_CARDNUMBER = 19
-
-function isCreditCardNumberValid(creditCardNumber) {
-  // Check that the input is a string and contains only digits, ignoring whitespace
-  if (typeof creditCardNumber !== 'string' || !/^\d+$/.test(creditCardNumber.replace(/\s/g, ''))) {
-    return false;
-  }
-
-  return true;
+const ThankYouComponent = () => {
+  return (
+    <div className={styles.thankyou}>
+      <Image src={iconcomplete} className={styles.complete}/>
+      <h1 className={styles.thankyouheader}>THANK YOU!</h1>
+      <div className={styles.desc}>We&#39;ve added your card details</div>
+      <button className={styles.continue}>Continue</button>
+    </div>
+  )
 }
 
 
@@ -26,22 +27,9 @@ export default function Home() {
     cardNumber: "0000 0000 0000 0000",
     expMonth: "00",
     expYear: "00",
-    cvc: "000"
+    cvc: "000",
+    submitted: false
   })
-
-  const updateForm = (e) => {
-    const prop = e.target.id
-    let newValue = e.target.value
-
-    if (prop === 'cardNumber') {
-      newValue = newValue.replace(/[\s-]/g, '');
-      newValue = newValue.replace(/(\d{4})/g, '$1 ').trim();
-    }
-
-    setForm({...form, [prop]: newValue})
-  }
-
-  const isCardNumberValid = isCreditCardNumberValid(form.cardNumber)
 
   return (
     <>
@@ -59,38 +47,15 @@ export default function Home() {
             <label className={styles.namelabel}>{form.name}</label>
             <label className={styles.explabel}>{form.expMonth + "/" + form.expYear }</label>
           </div>
-          <Image src={backcard} className="back-card" alt="backcard"></Image>
+          <div className={styles.backcard}>
+            <label className={styles.cvclabel}>{form.cvc}</label>
+          </div>
+
         </div>
 
         <div className={styles.right}>
-            <form action="/send-data-here" method="post">
-              <div className={styles.form}>
-                <label for="name">CARDHOLDER NAME</label>
-                <input onChange={updateForm} className={styles.name} type="text" id="name" name="name" placeholder="e.g. Jane Appleseed"/>
-                <label for="number">CARD NUMBER</label>
-                <input onChange={updateForm} className={styles.cardnumber} type="text" id="cardNumber" name="number" placeholder="e.g. 1234 5678 9123 0000" maxLength={MAX_DIGITS_FOR_CARDNUMBER} value={form.cardNumber}/>
-                { isCardNumberValid ? "" : <span>Wrong format, numbers only</span>}
+          {form.submitted ? <ThankYouComponent></ThankYouComponent> : <SignUpForm form={form} setForm={setForm}></SignUpForm>}
 
-                <div className={styles.expcontainer}>
-                  <div className={styles.exp}>
-                    <label for="exp-month">EXP. DATE (MM/YY)</label>
-
-                    <div className={styles.monthyearcontainer}>
-                      <input onChange={updateForm} type="text" id="expMonth" name="exp-month" placeholder="MM" maxLength={2}/>
-                      <input onChange={updateForm} type="text" id="expYear" name="exp-year" placeholder="YY" maxLength={2}/>
-                    </div>
-
-                  </div>
-                  <div className={styles.cvc}>
-                    <label for="cvc">CVC</label>
-                    <input onChange={updateForm} type="text" id="cvc" name="cvc" placeholder="e.g. 123"/>
-                  </div>
-
-                </div>
-
-                <button className={styles.submit} type="submit">Confirm</button>
-              </div>
-            </form>
         </div>
 
       </main>
